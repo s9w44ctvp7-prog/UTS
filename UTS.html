@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTS</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #eeeeee;
+    }
+
+    .halaman-login {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    /* ====== KOLOM KIRI (ILUSTRASI) ====== */
+    .kolom-ilustrasi {
+      flex: 1;
+      background: linear-gradient(135deg, #4b2ea8, #e94d8a);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 50px;
+      text-align: center;
+    }
+
+    .isi-ilustrasi h1 {
+      font-size: 42px;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .isi-ilustrasi p {
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 380px;
+      color: #f0e6ff;
+    }
+
+    /* ====== KOLOM KANAN (FORM) ====== */
+    .kolom-form {
+      flex: 1;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 30px;
+    }
+
+    .kotak-form {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* ====== HEADER FORM ====== */
+    .header-form {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .tombol-kembali {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #dddddd;
+      border-radius: 50%;
+      background-color: #ffffff;
+      font-size: 18px;
+      color: #333333;
+      cursor: pointer;
+    }
+
+    .tombol-kembali:hover {
+      background-color: #f5f5f5;
+    }
+
+    /* ====== LOGO PNJ ====== */
+    .logo-pnj {
+      width: 90px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* ====== JUDUL ====== */
+    .kotak-form h2 {
+      font-size: 30px;
+      color: #222222;
+      margin-bottom: 6px;
+    }
+
+    .sub-judul {
+      font-size: 14px;
+      color: #777777;
+      margin-bottom: 28px;
+    }
+
+    /* ====== TOMBOL GOOGLE ====== */
+    .tombol-google {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #dcdcdc;
+      border-radius: 8px;
+      background-color: #ffffff;
+      font-size: 15px;
+      color: #333333;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .tombol-google:hover {
+      background-color: #f7f7f7;
+    }
+
+    .ikon-google {
+      font-weight: bold;
+      color: #db4437;
+      font-size: 17px;
+    }
+
+    /* ====== PEMBATAS "OR" ====== */
+    .pembatas {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0;
+      color: #999999;
+      font-size: 13px;
+    }
+
+    .pembatas::before,
+    .pembatas::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #dddddd;
+    }
+
+    /* ====== INPUT ====== */
+    .grup-input {
+      margin-bottom: 18px;
+    }
+
+    .grup-input label {
+      display: block;
+      font-size: 14px;
+      color: #333333;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .grup-input input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #dcdcdc;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #222222;
+      outline: none;
+    }
+
+    .grup-input input:focus {
+      border-color: #4b2ea8;
+    }
+
+    /* ====== BARIS BAWAH (Remember & Forgot) ====== */
+    .baris-bawah {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 26px;
+      font-size: 13px;
+    }
+
+    .ingat-saya {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #555555;
+      cursor: pointer;
+    }
+
+    .lupa-password {
+      color: #4b2ea8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .lupa-password:hover {
+      text-decoration: underline;
+    }
+
+    /* ====== TOMBOL SIGN IN ====== */
+    .tombol-masuk {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4b2ea8;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .tombol-masuk:hover {
+      background-color: #3a2285;
+    }
+
+    /* ====== RESPONSIVE (MOBILE) ====== */
+    @media (max-width: 768px) {
+      .halaman-login {
+        flex-direction: column;
+      }
+
+      .kolom-ilustrasi {
+        display: none; /* kolom ilustrasi disembunyikan */
+      }
+
+      .kolom-form {
+        padding: 30px 20px;
+      }
+
+      .kotak-form h2 {
+        font-size: 26px;
+      }
+
+      .logo-pnj {
+        width: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="halaman-login">
+
+    <!-- ===== KOLOM KIRI : ILUSTRASI ===== -->
+    <section class="kolom-ilustrasi">
+      <div class="isi-ilustrasi">
+        <h1>Selamat Datang</h1>
+        <p>Masuk untuk melanjutkan ke menu utama.</p>
+      </div>
+    </section>
+
+    <!-- ===== KOLOM KANAN : FORM LOGIN ===== -->
+    <section class="kolom-form">
+      <div class="kotak-form">
+
+        <!-- Header : tombol kembali + logo PNJ -->
+        <div class="header-form">
+          <button type="button" class="tombol-kembali" aria-label="Kembali ke halaman sebelumnya">
+            &#8592;
+          </button>
+
+          <img src="Logo Politeknik Negeri Jakarta _ PNJ.jpg"
+               alt="Logo Politeknik Negeri Jakarta"
+               class="logo-pnj">
+        </div>
+
+        <h2>Sign In</h2>
+        <p class="sub-judul">Silakan masuk ke akun kamu</p>
+
+        <form action="#" method="post">
+
+          <!-- Tombol SSO Google -->
+          <button type="button" class="tombol-google" aria-label="Masuk dengan akun Google">
+            <span class="ikon-google">G</span>
+            Sign in with Google
+          </button>
+
+          <!-- Pembatas "or" -->
+          <div class="pembatas">
+            <span>or</span>
+          </div>
+
+          <!-- Input Email -->
+          <div class="grup-input">
+            <label for="email">Email / Username</label>
+            <input type="text" id="email" name="email" placeholder="nama@email.com" required>
+          </div>
+
+          <!-- Input Password -->
+          <div class="grup-input">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+          </div>
+
+          <!-- Remember Me & Forgot Password -->
+          <div class="baris-bawah">
+            <label class="ingat-saya">
+              <input type="checkbox" name="remember">
+              Remember Me
+            </label>
+            <a href="#" class="lupa-password">Forgot Password?</a>
+          </div>
+
+          <!-- Tombol Utama -->
+          <button type="submit" class="tombol-masuk">Sign In</button>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
